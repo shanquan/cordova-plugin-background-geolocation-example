@@ -32,7 +32,7 @@ var bgOptions = {
   activityType: 'AutomotiveNavigation',
   url: 'http://192.168.81.15:3000/locations',
   syncUrl: 'http://192.168.81.15:3000/sync',
-  syncThreshold: 100,
+  syncThreshold: 10,
   httpHeaders: {
     'X-FOO': 'bar'
   },
@@ -242,8 +242,21 @@ function setStationary (location) {
   backgroundGeoLocation.finish();
 }
 
+function postLocation (location) {
+    location.postedBy = 'js';
+    var url = 'http://192.168.81.15:3000/locations';
+    var r = new XMLHttpRequest();
+    r.open('POST', url, true);
+    r.onreadystatechange = function () {
+        if (r.readyState != 4 || r.status != 200) console.log('post failed');
+    };
+    r.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    r.send(JSON.stringify(location));
+}
+
 function setCurrentLocation (location) {
-    console.log('[DEBUG] location recieved', location);
+    console.log('[DEBUG] location recieved @' + Date.now(), location);
+    postLocation(location)
     if (!currentLocationMarker) {
         currentLocationMarker = new google.maps.Marker({
             map: map,
