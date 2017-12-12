@@ -29,7 +29,9 @@
     <!-- <link rel="stylesheet" href="Framework7/css/framework7.material.min.css" />
     <link rel="stylesheet" href="Framework7/css/framework7.material.colors.min.css" /> -->
     <link rel="stylesheet" href="app.ios.css" />
-    <script src="https://maps.google.com/maps/api/js?libraries=geometry"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.1&key=6846f39c5e771a4da6885c38768ed897"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=570C9bjqFg9jh5SAcU8fsdns1tLS9Kgd" async="true"></script>
+    <script src="//ditu.google.cn/maps/api/js?sensor=false&language=zh-CN" async="true"></script>
   </head>
   <body>
     <div class="views tabs toolbar-through">
@@ -43,7 +45,7 @@
                 </div>
             </div>
             <div id="tabbar" class="toolbar app-tabbar"></div>
-            <div class="credits">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+            <!-- <div class="credits">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
         </div>
 
         <div id="view-2" class="view tab">
@@ -88,6 +90,26 @@
     <script type="text/template7" id="settingsTemplate">
       <div class="list-block">
           <ul>
+            <!-- Smart select item -->
+            <li>
+              <!-- Additional "smart-select" class -->
+              <a href="#" class="item-link smart-select">
+                <!-- select -->
+                <select name="mapSelect" data-type="config">
+                  <option value="amap" selected>高德地图</option>
+                  <option value="baidu">百度地图</option>
+                  <option value="google">谷歌地图</option>
+                </select>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <!-- Select label -->
+                    <div class="item-title">地图切换</div>
+                    <!-- Selected value, not required -->
+                    <div class="item-after">高德地图</div>
+                  </div>
+                </div>
+              </a>
+            </li>
             <li>
               <div class="item-content">
                 <div class="item-inner">
